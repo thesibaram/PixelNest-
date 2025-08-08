@@ -12,23 +12,29 @@ footer {
 }
 
 .footer-content {
-    /* Using CSS Grid for a robust, balanced column layout */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    /* Equal spacing between columns */
-    gap: 2rem;
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2.5rem;
     max-width: 1200px;
     margin: 0 auto 2rem auto;
-    /* Increased the padding to create a large gap on the left and right sides */
-    padding: 0 0px;
+    padding-left: 4rem; /* Big gap for left side */
+    padding-right: 4rem; /* Big gap for right side */
 }
 
 .footer-section {
-    /* Each column in the footer */
     text-align: left;
     display: flex;
     flex-direction: column;
+    min-width: 200px;
+}
+
+.footer-section:first-child {
+    margin-left: 2rem; /* Extra gap for first column */
+}
+.footer-section:last-child {
+    margin-right: 2rem; /* Extra gap for last column */
 }
 
 .footer-logo {
@@ -99,11 +105,16 @@ footer {
 /* Responsive styles */
 @media screen and (max-width: 768px) {
     .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
     .footer-section {
         text-align: center;
+        min-width: unset;
+        margin-left: 0;
+        margin-right: 0;
     }
     .footer-links,
     .social-links {
@@ -119,19 +130,15 @@ footer {
 }
 
 /* Animation for the heart emoji */
-.heart {
+.heart-emoji {
     display: inline-block;
-    animation: heartbeat 1.2s infinite;
-    transform-origin: center;
+    animation: pulse 1s infinite;
 }
 
-@keyframes heartbeat {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.2);
-    }
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
 }
 
 /* Added Clara and heart to be consistent with the original code */
