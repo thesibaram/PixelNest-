@@ -1,150 +1,214 @@
+/* GLOBAL BEST PRACTICE */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* Footer */
 footer {
-    /* Main footer container styles */
-    background-color: #1a1a1a;
-    color: white;
-    padding: 4rem 0;
-    width: 100vw;
-    /* This centers the footer and makes it full-width */
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    font-family: 'Freeman', sans-serif;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 4rem 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  font-family: 'Freeman', sans-serif;
 }
 
 .footer-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 2.5rem;
-    max-width: 1200px;
-    margin: 0 auto 2rem auto;
-    padding-left: 4rem; /* Big gap for left side */
-    padding-right: 4rem; /* Big gap for right side */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  padding: 0 4rem;
 }
 
 .footer-section {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  text-align: left;
 }
 
-.footer-section:first-child {
-    margin-left: 2rem; /* Extra gap for first column */
-}
+/* 🔧 FIX: Removed conflicting margins that broke alignment */
+.footer-section:first-child,
 .footer-section:last-child {
-    margin-right: 2rem; /* Extra gap for last column */
+  margin: 0;
 }
 
+/* 🔧 FIX: Logo styling and left nudge */
 .footer-logo {
-    /* Title/Logo style */
-    font-family: 'Big Shoulders Inline Display', sans-serif;
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  font-family: 'Big Shoulders Inline Display', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  transform: translateX(-1rem); /* Slightly nudge left */
+}
+
+.footer-logo a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+.footer-logo svg {
+  stroke: white;
+}
+.footer-logo span {
+  color: #8fff8f; /* Softer green for accessibility */
+}
+.header-logo svg {
+  stroke: black !important;
+}
+.header-logo span {
+  color: black !important;
+}
+/* Responsive image logo (if using img instead of SVG) */
+.footer-logo img {
+  filter: brightness(0) invert(1);
+  margin-left: 0;
+}
+
+@media (max-width: 900px) {
+  .footer-logo img {
+    margin-left: 16px;
+  }
 }
 
 .footer-links,
 .social-links {
-    /* List styles for links */
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-links li,
 .social-links li {
-    margin-bottom: 0.8rem;
+  margin-bottom: 0.8rem;
 }
 
 .footer-links a {
-    /* Anchor tag styles for standard links */
-    color: white;
-    text-decoration: none;
-    font-family: 'Freeman', sans-serif;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
+  color: white;
+  text-decoration: none;
+  font-family: 'Freeman', sans-serif;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
 }
 
 .footer-links a:hover {
-    color: #007bff; /* Color change on hover */
+  color: #007bff;
 }
 
 .social-links a {
-    /* Anchor tag styles for social links */
-    color: white;
-    text-decoration: none;
-    font-size: 1.5rem;
-    display: inline-flex;
-    align-items: center;
-    transition: all 0.3s ease;
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
 }
 
 .social-links a i {
-    /* Icon styling for social links */
-    margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .social-links a:hover {
-    color: #007bff;
-    transform: scale(1.2); /* Scale up on hover for a subtle effect */
+  color: #007bff;
+  transform: scale(1.2);
 }
 
+/* Tagline below logo */
+.footer-section p {
+  font-family: 'Freeman', sans-serif;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  color: white;
+}
+
+/* Copyright */
 .copyright {
-    /* Copyright text section */
-    text-align: center;
-    color: #aaa;
-    font-size: 1rem;
-    padding-top: 2rem;
-    border-top: 1px solid #333;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 20px 0 20px;
+  text-align: center;
+  color: #aaa;
+  font-size: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid #333;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 20px 0 20px;
 }
 
-/* Responsive styles */
+/* ✅ Responsive layout fix */
 @media screen and (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        gap: 1.5rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-    .footer-section {
-        text-align: center;
-        min-width: unset;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .footer-links,
-    .social-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-    }
-    .footer-links li,
-    .social-links li {
-        margin: 0;
-    }
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .footer-section {
+    text-align: center;
+    min-width: unset;
+    align-items: center;
+  }
+
+  .footer-logo a {
+    justify-content: center;
+  }
+
+  .footer-links,
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .footer-links li,
+  .social-links li {
+    margin: 0;
+  }
 }
 
-/* Animation for the heart emoji */
+/* Heart Animation */
 .heart-emoji {
-    display: inline-block;
-    animation: pulse 1s infinite;
+  display: inline-block;
+  animation: pulse 1s infinite;
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }
 
-/* Added Clara and heart to be consistent with the original code */
+/* Clara Styling */
 .clara {
-    font-weight: bold;
-    color: #11ff00;
-    margin-left: 4px;
-    font-size: 2.3em;
+  font-weight: bold;
+  color: #8fff8f; /* Consistent with logo */
+  margin-left: 4px;
+  font-size: 2.3em;
+}
+
+@media screen and (max-width: 900px) {
+  #menu {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100vw;
+    background: #fff;
+    z-index: 50;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    /* Remove forced display: block and height overrides */
+    height: auto;
+    max-height: 400px;
+    overflow: visible;
+  }
+  header {
+    position: relative;
+  }
 }

@@ -54,10 +54,19 @@
     <!-- Navbar -->
     <nav id="nav" x-data="{ open: false }" role="navigation" class="w-full">
       <div class="container mx-auto flex flex-wrap items-center md:flex-no-wrap">
-        <div class="mr-4 md:mr-8 flex flex-col items-start gap-0">
-          <div class="flex items-center gap-2">
-            <a href="../index.html"><img src="./assets/PixelNest logo.png" alt="PixelNest Logo" class="h-10 md:h-16 w-auto inline-block align-middle" /></a>
-          </div>
+        <div class="header-logo">
+          <a href="index.html" class="flex items-center justify-center space-x-2">
+            <!-- Logo SVG in black -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 1v22M12 1h10M12 1v22M12 23H2"></path>
+              <path d="M22 12H2"></path>
+              <path d="M22 12v10M2 12V2"></path>
+              <rect x="2" y="2" width="20" height="20" rx="3"></rect>
+            </svg>
+            <!-- Text in black -->
+            <span class="text-3xl font-freeman" style="color:black;">PixelNest</span>
+          </a>
         </div>
         <div class="ml-auto md:hidden flex items-center justify-start">
           <button onclick="menuToggle()" @click="open = !open"
@@ -161,7 +170,15 @@
         <div class="container footer-content">
             <div class="footer-section">
                 <div class="footer-logo">
-                    <a href="about_me.html" class="flex items-center space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-black dark:text-white"><path d="M12 1v22M12 1h10M12 1v22M12 23H2"></path><path d="M22 12H2"></path><path d="M22 12v10M2 12V2"></path><rect x="2" y="2" width="20" height="20" rx="3"></rect></svg><span class="text-3xl font-freeman">PixelNest</span></a>
+                    <a href="contact.html" class="flex items-center space-x-2" style="justify-content:center;display:flex;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-black dark:text-white">
+                        <path d="M12 1v22M12 1h10M12 1v22M12 23H2"></path>
+                        <path d="M22 12H2"></path>
+                        <path d="M22 12v10M2 12V2"></path>
+                        <rect x="2" y="2" width="20" height="20" rx="3"></rect>
+                      </svg>
+                      <span class="text-2xl font-freeman">PixelNest</span>
+                    </a>
                 </div>
                 <p style="font-family:'Freeman',sans-serif;font-size:1.1rem;text-align:center;margin-top:0.5rem;">Pixels with purpose, and a pulse for Clara.</p>
             </div>
